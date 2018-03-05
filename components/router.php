@@ -46,7 +46,7 @@ class router
                 }
                 
 
-                $namespace = 'authorization\\controllers';
+                $namespace = 'minigame\\controllers';
                 
                 $controllerClass = $namespace . '\\' . $controllerName;
                 

@@ -17,7 +17,7 @@ environments:
     development:
         adapter: mysql
         host: localhost
-        name: authorization
+        name: minigame
         user: admin
         pass: '12345'
         port: 3306
@@ -26,7 +26,7 @@ environments:
     testing:
         adapter: mysql
         host: localhost
-        name: authorization
+        name: minigame
         user: admin
         pass: '12345'
         port: 3306

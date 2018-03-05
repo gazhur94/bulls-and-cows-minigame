@@ -1,8 +1,8 @@
 <?php
 
-namespace authorization\controllers;
+namespace minigame\controllers;
 
-use authorization\view\helpers;
+use minigame\view\helpers;
 
 
 

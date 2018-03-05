@@ -1,6 +1,6 @@
-<?php namespace authorization\view;
+<?php namespace minigame\view;
 
-use authorization\models\Current_sessions; ?>
+use minigame\models\Current_sessions; ?>
 
 <!DOCTYPE html>
 <html lang="en"><head>

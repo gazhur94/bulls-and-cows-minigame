@@ -1,5 +1,5 @@
 <?php
-namespace authorization\view;
+namespace minigame\view;
 class helpers
 {
     public static function render ($template, $data =[])
