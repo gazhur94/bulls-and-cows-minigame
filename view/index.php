@@ -15,7 +15,7 @@
 </head>
 <body class="color-scheme-neue">
 
-	<div class="bg-img" style="width: 100%; height: 100%; position: fixed; background: url(/images/hongkong-bg.jpg) no-repeat center center; background-size: cover; "></div>
+	<div class="bg-img" style="width: 100%; height: 100%; position: fixed; background: url(/view/images/hongkong-bg.jpg) no-repeat center center; background-size: cover; "></div>
 	<!-- First screen -->
 	<div class="splash">
 	
