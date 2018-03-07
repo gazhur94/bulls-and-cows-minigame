@@ -6,11 +6,14 @@ use minigame\view\helpers;
 use minigame\models\game;
 use minigame\components\number;
 use minigame\components\checker;
+use minigame\components\errors;
 
 
 
 class GameController
 {
+   
+
     public function actionIndex()
     {   
         
@@ -25,21 +28,13 @@ class GameController
 
             if ((isset($_POST['num1'])) && (isset($_POST['num2'])) && (isset($_POST['num3'])) && (isset($_POST['num4'])))
             {
-                $errors = array();
-                if($_POST['num1'] == $_POST['num2'] || $_POST['num1'] == $_POST['num3'] || $_POST['num1'] == $_POST['num4'] || $_POST['num2'] == $_POST['num3'] || $_POST['num2'] == $_POST['num4'] || $_POST['num3'] == $_POST['num4'])
-                {
-                    $errors = 'Цифри не можуть повторюватись';
-                }
-                if($_POST['num1']=='' || $_POST['num2']==''  || $_POST['num3']=='' || $_POST['num4']=='')
-                {
-                    $errors = 'Введіть всі поля';
-                }
+                
+                $errors = new errors;
 
-                if (empty($errors))
+                if (empty($errors->error))
                 {
                     $turnId = $_COOKIE['turnId'];
-                    ${"turn$turnId"} = new game;
-                
+
                     ${"turn$turnId"}->turnId = $_COOKIE['turnId'];
                     ${"turn$turnId"}->turn['num1'] = $_POST['num1'];
                     ${"turn$turnId"}->turn['num2'] = $_POST['num2'];
@@ -60,7 +55,7 @@ class GameController
                 {
                     
                     
-                    helpers::render('index',["error" => "$errors"]);
+                    helpers::render('index',["error" => "$errors->error"]);
                     die();;
                 }    
             }
@@ -68,6 +63,8 @@ class GameController
 
         helpers::render('index');
     }
+    
+
 }
 
 

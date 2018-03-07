@@ -13,7 +13,7 @@
 	<!-- Icons via Font Awesome -->
 	<link rel="stylesheet" href="/view/css/font-awesome.min.css" />
 </head>
-<body align="left">
+<body >
 
 	<div class="bg-img" style="width: 100%; height: 100%; position: fixed; background: url(/view/images/hongkong-bg.jpg) no-repeat center center; background-size: cover; "></div>
 	<!-- First screen -->
