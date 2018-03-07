@@ -23,7 +23,7 @@
 		
         <form method='POST'>			
             <div class="countdown circled small" style="text-align:center">
-                <input type = "submit" class="time days" style="width:320px" name="StartPlayerVSBot" value = "Гра проти бота">
+                <input type = "submit" class="time days" style="width:320px" name="StartBotVSPlayer" value = "Гра проти бота">
             </div>
 		</form>		
 		

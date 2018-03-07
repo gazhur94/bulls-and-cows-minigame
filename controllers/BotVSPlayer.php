@@ -8,6 +8,7 @@ use minigame\components\number;
 use minigame\components\checker;
 use minigame\components\errors;
 use minigame\components\turn;
+use minigame\components\cookie;
 
 
 
@@ -18,16 +19,18 @@ class BotVSPlayer
     public function __construct()
     {   
         
+
         if (!isset($_COOKIE['turnId']))
         {
             setcookie('turnId',1);
-            $number = new number;
-            $_SESSION['number'] = $number;
+             
+            $_SESSION['number'] = new number;
         }
+
         else
         {
 
-            if ((isset($_POST['num1'])) && (isset($_POST['num2'])) && (isset($_POST['num3'])) && (isset($_POST['num4'])))
+            if (isset($_POST['send_numbers']))
             {
                 //var_dump($_SESSION['number']);
                 $errors = new errors;
@@ -57,11 +60,7 @@ class BotVSPlayer
                 }    
             }
         }
-        if (isset($_POST['goToMain']))
-        {
-            header('Location: /');
-            die();
-        }
+      
         helpers::render('index');
 
     }

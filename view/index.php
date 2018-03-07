@@ -115,7 +115,7 @@
 				<div class="countdown circled small" style="text-align:center">
 					<br><br>
 					<input type = "submit" class="time days" style="width:240px" name="goToMain" value = "Головне меню">
-					<input type = "submit" class="time days" style="width:120px" name="newGame" value = "Заново">
+					<input type = "submit" class="time days" style="width:120px" name="resetGame" value = "Заново">
 				</div>
 		</form>		
 		
