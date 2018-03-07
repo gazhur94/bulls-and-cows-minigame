@@ -36,15 +36,15 @@
 					<?php for ($j=1;$j<=4;$j++): ?>
 					
 						<div class="time days">
-							<div class="value"><?php echo $currentTurn->turn['num'."$j"]; ?></div>		
+							<div class="value"><?php echo $currentTurn->{'num'."$j"}; ?></div>		
 						</div>
 					<?php endfor; ?>
-					<?php for ($c=0; $c<$currentTurn->turn["cows"];$c++): ?>
+					<?php for ($c=0; $c<$currentTurn->cows;$c++): ?>
 							<span>
 								<img src="/view/images/cow.png" alt="cow" style="width:70px; height:70px;">
 							</span>
 					<?php endfor; ?>
-					<?php for ($b=0; $b<$currentTurn->turn["bulls"];$b++): ?>	
+					<?php for ($b=0; $b<$currentTurn->bulls;$b++): ?>	
 							<span>
 								<img src="/view/images/bull.png" alt="bull" style="width:70px; height:70px;">
 							</span>
@@ -85,7 +85,15 @@
 	<div>
 
 	</div>
-		<form method='POST'>			
+		<form method='POST'>
+			<?php if (isset($bulls)): ?>
+				<?php if ($bulls == 4): ?>
+					<p><b style="color:green; font-size:40px; font-type:bold">Ви вгадали число за <?php echo $_COOKIE['turnId'] ?> спроб<b></p>
+				<?php endif; ?>
+			<?php endif; ?>
+
+			<?php if  (!isset($bulls) || $bulls !=4): ?>
+
 				<div class="countdown circled small">
 					
 					<?php if (isset($error)): ?>
@@ -100,8 +108,14 @@
 
 					<?php endfor; ?>
 
-					<input type = "submit" name="send_numbers" value = "Відправити">
+					<input type = "submit" class="time days" style="width:180px" name="send_numbers" value = "Відправити">
 					
+				</div>
+			<?php endif; ?>
+				<div class="countdown circled small" style="text-align:center">
+					<br><br>
+					<input type = "submit" class="time days" style="width:240px" name="goToMain" value = "Головне меню">
+					<input type = "submit" class="time days" style="width:120px" name="newGame" value = "Заново">
 				</div>
 		</form>		
 		

@@ -1,7 +1,8 @@
 <?php
 return array
 (
-    '' => 'game/index'
+    '' => 'mainpage/index',
+
     
 
 );
