@@ -46,8 +46,8 @@ class BotVSPlayer
                     setcookie("turn$turnId",serialize(${"turn$turnId"}));
                     setcookie('turnId',$_COOKIE['turnId']+1);
 
-                    helpers::render('index', ["bulls" => "$bulls", "cows" =>"$cows"]);
-                    die();
+                    return helpers::render('index', ["bulls" => "$bulls", "cows" =>"$cows"]);
+                    
 
 
                 }
@@ -55,13 +55,13 @@ class BotVSPlayer
                 {
                     
                     
-                    helpers::render('index',["error" => "$errors->error"]);
-                    die();;
+                    return helpers::render('index',["error" => "$errors->error"]);
+                    
                 }    
             }
         }
       
-        helpers::render('index');
+        return helpers::render('index');
 
     }
     
