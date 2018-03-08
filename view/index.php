@@ -122,7 +122,7 @@
 				<div class="countdown circled small" style="text-align:center">
 					<br><br>
 					<input type = "submit" class="time days" style="width:240px; color:white" name="goToMain" value = "Головне меню">
-					<?php if (!isset($_POST['showAnswer'])): ?>
+					<?php if ((!isset($_POST['showAnswer'])  && (isset($bulls)) && ($bulls != 4)) || (isset($_POST['StartBotVSPlayer']))): ?>
 						<input type = "submit" class="time days" style="width:450px; color:white" name="showAnswer" value = "Здатись / Показати відповідь">
 					<?php endif; ?>
 					<?php if (isset($_POST['showAnswer'])): ?>

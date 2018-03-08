@@ -12,8 +12,17 @@ class MainpageController
     {
         if (isset($_POST['StartBotVSPlayer']) ||  isset($_POST['send_numbers']) ||  isset($_POST['showAnswer']) )
         {
-            (new BotVSPlayer);      
-            
+            if (isset($_POST['showAnswer']))
+            {
+               
+                cookie::clear();
+                (new BotVSPlayer);      
+            }
+            else
+            {
+                (new BotVSPlayer);    
+            }
+
         }
         
         else if (isset($_POST['StartPlayerVSBot']) )
