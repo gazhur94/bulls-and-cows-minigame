@@ -30,8 +30,7 @@
 						$turnId = $i;
 						
 						$currentTurn = unserialize($_COOKIE["turn$turnId"]);
-						
-						
+
 					?>
 					<?php for ($j=1;$j<=4;$j++): ?>
 					
@@ -54,6 +53,7 @@
 			<?php endfor; ?>
 		<?php endif; ?>
 
+	<?php if (!isset($_POST['resetGame'])): ?>
 		<?php if ((isset($_POST['num1'])) && (isset($_POST['num2'])) && (isset($_POST['num3'])) && (isset($_POST['num4'])) ): ?>
 			<?php if (!isset($error)): ?>
 				<div class="countdown circled small">
@@ -79,6 +79,7 @@
 						<?php endfor; ?>	
 				</div>
 			<?php endif; ?>
+		<?php endif; ?>
 		<?php endif; ?>
 
 	
@@ -108,15 +109,16 @@
 
 					<?php endfor; ?>
 
-					<input type = "submit" class="time days" style="width:180px" name="send_numbers" value = "Відправити">
+					<input type = "submit" class="time days" style="width:180px; color:white" name="send_numbers" value = "Відправити">
 					
 				</div>
 			<?php endif; ?>
 				<div class="countdown circled small" style="text-align:center">
 					<br><br>
-					<input type = "submit" class="time days" style="width:240px" name="goToMain" value = "Головне меню">
-					<input type = "submit" class="time days" style="width:120px" name="resetGame" value = "Заново">
+					<input type = "submit" class="time days" style="width:240px; color:white" name="goToMain" value = "Головне меню">
+					<input type = "submit" class="time days" style="width:150px; color:white" name="resetGame" value = "Спочатку">
 				</div>
+				
 		</form>		
 		
 		

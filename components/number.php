@@ -23,12 +23,14 @@ class number
         {
             $num3 = rand(0,9);
         }
+
         while ($num3 == $num1 || $num3 == $num2);
 
         do 
         {
             $num4 = rand(0,9);
         }
+        
         while ($num4 == $num1 || $num4 == $num2 || $num4 == $num3);
         
         $numb[0] = $num1;

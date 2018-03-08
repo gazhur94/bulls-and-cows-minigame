@@ -15,16 +15,31 @@ class MainpageController
             (new BotVSPlayer);      
             
         }
+        
+        else if (isset($_POST['StartPlayerVSBot']) )
+        {
+            (new PlayerVSBot);      
+            
+        }
+        else if (isset($_POST['goToMain']))
+        {
+            helpers::render('mainpage');
+        }
+        else if (isset($_COOKIE['turn1']) && $_COOKIE['turn1'] == '0')
+        {
+           
+                (new BotVSPlayer); 
+            
+        }
         else if (isset($_POST['resetGame'])) 
         {
             unset($_POST);
             cookie::clear();
             
-           
             if (isset($_COOKIE))
             {
-                var_dump('tut');
-                new self;
+                setcookie('turn1',0);
+                header('location: /');
             }   
             
             (new BotVSPlayer); 
