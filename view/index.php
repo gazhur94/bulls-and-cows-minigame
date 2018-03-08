@@ -53,7 +53,7 @@
 			<?php endfor; ?>
 		<?php endif; ?>
 
-	<?php if (!isset($_POST['resetGame'])): ?>
+	<?php if (!isset($_POST['resetGame']) && (!isset($_POST['showAnswer']))): ?>
 		<?php if ((isset($_POST['num1'])) && (isset($_POST['num2'])) && (isset($_POST['num3'])) && (isset($_POST['num4'])) ): ?>
 			<?php if (!isset($error)): ?>
 				<div class="countdown circled small">
@@ -93,30 +93,41 @@
 				<?php endif; ?>
 			<?php endif; ?>
 
+			<?php if (isset($_POST['showAnswer'])): ?>
+				<p><b style="color:red; font-size:40px; font-type:bold">Ви програли. Загадане число: <?php echo $_SESSION['number']->numb[0].$_SESSION['number']->numb[1].$_SESSION['number']->numb[2].$_SESSION['number']->numb[3]; ?> <b></p>
+			<?php endif; ?>
+
 			<?php if  (!isset($bulls) || $bulls !=4): ?>
 
-				<div class="countdown circled small">
-					
-					<?php if (isset($error)): ?>
-						<p><b style="color:red; font-size:20px; font-type:bold"><?php echo $error; ?><b></p>
-					<?php endif ?>		
-					<?php for ($i=1;$i<=4;$i++): ?>
-					
-						<div class="time days">
-							<div class="value"><input style ="width:30px; font-size:25px" type="number" min="0" max="9"  autofocus="" name="<?php echo('num'."$i")  ?>" maxlength="1"></div>
-							
-						</div>
+				<?php if ((!isset($_POST['showAnswer']))): ?>
+					<div class="countdown circled small">
+						
+						<?php if (isset($error)): ?>
+							<p><b style="color:red; font-size:20px; font-type:bold"><?php echo $error; ?><b></p>
+						<?php endif ?>		
+						<?php for ($i=1;$i<=4;$i++): ?>
+						
+							<div class="time days">
+								<div class="value"><input style ="width:30px; font-size:25px" type="number" min="0" max="9"  autofocus="" name="<?php echo('num'."$i")  ?>" maxlength="1"></div>
+								
+							</div>
 
-					<?php endfor; ?>
+						<?php endfor; ?>
 
-					<input type = "submit" class="time days" style="width:180px; color:white" name="send_numbers" value = "Відправити">
-					
-				</div>
+						<input type = "submit" class="time days" style="width:180px; color:white" name="send_numbers" value = "Відправити">
+						
+					</div>
+					<?php endif; ?>
 			<?php endif; ?>
 				<div class="countdown circled small" style="text-align:center">
 					<br><br>
 					<input type = "submit" class="time days" style="width:240px; color:white" name="goToMain" value = "Головне меню">
-					<input type = "submit" class="time days" style="width:150px; color:white" name="resetGame" value = "Спочатку">
+					<?php if (!isset($_POST['showAnswer'])): ?>
+						<input type = "submit" class="time days" style="width:450px; color:white" name="showAnswer" value = "Здатись / Показати відповідь">
+					<?php endif; ?>
+					<?php if (isset($_POST['showAnswer'])): ?>
+						<input type = "submit" class="time days" style="width:150px; color:white" name="resetGame" value = "Спочатку">
+					<?php endif; ?>
 				</div>
 				
 		</form>		

@@ -10,7 +10,7 @@ class MainpageController
 {
     public function actionIndex()
     {
-        if (isset($_POST['StartBotVSPlayer']) ||  isset($_POST['send_numbers']))
+        if (isset($_POST['StartBotVSPlayer']) ||  isset($_POST['send_numbers']) ||  isset($_POST['showAnswer']) )
         {
             (new BotVSPlayer);      
             
