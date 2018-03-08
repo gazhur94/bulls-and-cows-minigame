@@ -22,7 +22,7 @@ class BotVSPlayer
 
         if (!isset($_COOKIE['turnId']))
         {
-            setcookie('turnId',1);
+            setcookie('turnId',1,time()+(3600*24*365));
              
             $_SESSION['number'] = new number;
         }
@@ -43,8 +43,8 @@ class BotVSPlayer
                     $bulls = ${"turn$turnId"}->bulls;
                     $cows = ${"turn$turnId"}->cows;
                     
-                    setcookie("turn$turnId",serialize(${"turn$turnId"}));
-                    setcookie('turnId',$_COOKIE['turnId']+1);
+                    setcookie("turn$turnId",serialize(${"turn$turnId"}),time()+(3600*24*365));
+                    setcookie('turnId',$_COOKIE['turnId']+1,time()+(3600*24*365));
 
                     return helpers::render('index', ["bulls" => "$bulls", "cows" =>"$cows"]);
                     
