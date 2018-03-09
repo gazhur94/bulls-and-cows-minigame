@@ -31,11 +31,13 @@ class MainpageController
         
         else if (isset($_POST['StartPlayerVSBot']) )
         {
+            cookie::clear();
             (new PlayerVSBot);      
             
         }
         else if (isset($_POST['goToMain']))
         {
+            cookie::clear();
             helpers::render('mainpage');
         }
         else if (isset($_COOKIE['turn1']) && $_COOKIE['turn1'] == '0')
@@ -59,6 +61,7 @@ class MainpageController
         }
         else
         {
+            cookie::clear();
             helpers::render('mainpage');
         }
     }

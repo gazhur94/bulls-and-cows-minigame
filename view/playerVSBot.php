@@ -30,10 +30,11 @@
 							<span class="value">Х</span>
 						</div>
 					<?php endfor; ?>
-								
-					<input type = "submit" class="time days" style="width:140px; color:white" name="win" value = "Вгадав">
-					<input type = "submit" class="time days" style="width:170px; color:white" name="loose" value = "Не вгадав">
-								
+
+					<?php if (!isset($_POST['win']) && !isset($_POST['loose'])):	 ?>		
+						<input type = "submit" class="time days" style="width:140px; color:white" name="win" value = "Вгадав">
+						<input type = "submit" class="time days" style="width:170px; color:white" name="loose" value = "Не вгадав">
+					<?php endif; ?>			
 				</form>					
 		</div>
 
@@ -62,7 +63,7 @@
 			<div class="countdown circled small" style="text-align:center">
 						<br><br>
 						<input type = "submit" class="time days" style="width:240px; color:white" name="goToMain" value = "Головне меню">
-						<input type = "submit" class="time days" style="width:170px; color:white" name="resetGame2" value = "Спочтатку">
+						<input type = "submit" class="time days" style="width:170px; color:white" name="resetGame2" value = "Спочатку">
 			</div>
 		</form>		
 		
