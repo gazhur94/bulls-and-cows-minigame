@@ -22,7 +22,11 @@ class MainpageController
             {
                 (new BotVSPlayer);    
             }
-
+            
+        }
+        else if (isset($_POST['win']) || isset($_POST['loose']))
+        {
+            (new PlayerVSBot);
         }
         
         else if (isset($_POST['StartPlayerVSBot']) )

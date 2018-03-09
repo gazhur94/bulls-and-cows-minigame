@@ -86,6 +86,7 @@
 	<div>
 
 	</div>
+		<div class="countdown circled small">
 		<form method='POST'>
 			<?php if (isset($bulls)): ?>
 				<?php if ($bulls == 4): ?>
@@ -100,7 +101,6 @@
 			<?php if  (!isset($bulls) || $bulls !=4): ?>
 
 				<?php if ((!isset($_POST['showAnswer']))): ?>
-					<div class="countdown circled small">
 						
 						<?php if (isset($error)): ?>
 							<p><b style="color:red; font-size:20px; font-type:bold"><?php echo $error; ?><b></p>
@@ -128,7 +128,7 @@
 					<?php if (isset($_POST['showAnswer']) || (isset($bulls)) && ($bulls == 4)): ?>
 						<input type = "submit" class="time days" style="width:150px; color:white" name="resetGame" value = "Спочатку">
 					<?php endif; ?>
-				</div>
+			</div>
 				
 		</form>		
 		
