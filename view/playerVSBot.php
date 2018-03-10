@@ -20,9 +20,10 @@
 	</div>
 
     <div class="splash" >
-
+	<div class="countdown text-left  circled small">
+			<p><b style="color:white; font-size:40px; font-type:bold">Це заготовка. Тут ше поки нічого не працює. Але я дороблю(можливо)<b></p>	
+	</div>
 		<div class="countdown text-left  circled small">
-				
 				<form method='POST'>			
 					<?php for ($i=1;$i<=4;$i++): ?>
 							
