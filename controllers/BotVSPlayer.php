@@ -46,7 +46,7 @@ class BotVSPlayer
                     setcookie("turn$turnId",serialize(${"turn$turnId"}),time()+(3600*24*365));
                     setcookie('turnId',$_COOKIE['turnId']+1,time()+(3600*24*365));
 
-                    return helpers::render('index', ["bulls" => "$bulls", "cows" =>"$cows"]);
+                    return helpers::render('botVSPlayer', ["bulls" => "$bulls", "cows" =>"$cows"]);
                     
 
 
@@ -55,13 +55,13 @@ class BotVSPlayer
                 {
                     
                     
-                    return helpers::render('index',["error" => "$errors->error"]);
+                    return helpers::render('botVSPlayer',["error" => "$errors->error"]);
                     
                 }    
             }
         }
       
-        return helpers::render('index');
+        return helpers::render('botVSPlayer');
 
     }
     
