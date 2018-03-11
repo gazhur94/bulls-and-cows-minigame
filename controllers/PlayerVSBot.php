@@ -9,12 +9,12 @@ class PlayerVSBot
 {
     public function __construct()
     {  
-        // if (!isset($_COOKIE['turnId']))
-        // {
-        //     setcookie('turnId',1,time()+(3600*24*365));
+         if (!isset($_COOKIE['turnId']))
+         {
+             setcookie('turnId',1,time()+(3600*24*365));
              
-        //     $_SESSION['guess'] = new number;
-        // }
+             $_SESSION['guess'] = new number;
+        }
 
         // if (isset($_POST['sendCowsBulls']))
         // {
