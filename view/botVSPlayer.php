@@ -113,7 +113,7 @@
 
 							<?php for ($i=1;$i<=4;$i++): ?>
 								<div class="time days">
-									<div class="value"><input style ="width:30px; font-size:25px" type="number" min="0" max="9"  autofocus="" name="<?php echo('num'."$i")  ?>" maxlength="1"></div>
+									<div class="value"><input style ="width:40px; font-size:25px; height:30px" type="number" min="0" max="9"  autofocus="" name="<?php echo('num'."$i")  ?>" maxlength="1"></div>
 									
 								</div>
 							<?php endfor; ?>

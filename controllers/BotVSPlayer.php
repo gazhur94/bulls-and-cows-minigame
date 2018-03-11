@@ -4,10 +4,10 @@ namespace minigame\controllers;
 
 use minigame\view\helpers;
 use minigame\models\game;
-use minigame\components\number;
-use minigame\components\checker;
-use minigame\components\errors;
-use minigame\components\turn;
+use minigame\components\player\number;
+use minigame\components\player\checker;
+use minigame\components\player\errors;
+use minigame\components\player\turn;
 use minigame\components\cookie;
 
 

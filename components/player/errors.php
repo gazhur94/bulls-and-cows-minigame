@@ -1,6 +1,6 @@
 <?php
 
-namespace minigame\components;
+namespace minigame\components\player;
 
 class errors
 {
