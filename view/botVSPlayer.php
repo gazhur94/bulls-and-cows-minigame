@@ -21,8 +21,10 @@
 	<!-- First screen -->
 	<div class="splash" >
 	
-	<div >
-						
+	<div class="container">
+
+		<div class="col-9">
+		<!-- Інфа з куків				 -->
 		<?php if(isset($_COOKIE['turnId'])): ?>
 
 			<?php for ($i=1;$i<=$_COOKIE['turnId']-1;$i++): ?>
@@ -58,6 +60,8 @@
 			<?php endfor; ?>
 		<?php endif; ?>
 
+
+		<!-- Інфа з поста -->
 		<?php if (!isset($_POST['resetGame']) && (!isset($_POST['showAnswer']))): ?>
 			<?php if ((isset($_POST['num1'])) && (isset($_POST['num2'])) && (isset($_POST['num3'])) && (isset($_POST['num4'])) ): ?>
 				<?php if (!isset($error)): ?>
@@ -91,6 +95,7 @@
 	
 	</div>
 
+	<!-- Форма вводу -->
 	<div>
 		<div class="countdown circled small">
 			<form method='POST'>
@@ -113,12 +118,12 @@
 
 							<?php for ($i=1;$i<=4;$i++): ?>
 								<div class="time days">
-									<div class="value"><input style ="width:40px; font-size:25px; height:30px" type="number" min="0" max="9"  autofocus="" name="<?php echo('num'."$i")  ?>" maxlength="1"></div>
+									<div class="value"><input style ="width:40px; font-size:25px; height:45px" type="number" min="0" max="9"  autofocus="" name="<?php echo('num'."$i")  ?>" maxlength="1"></div>
 									
 								</div>
 							<?php endfor; ?>
 
-							<input type = "submit" class="time days" style="width:180px; color:white" name="send_numbers" value = "Відправити">
+							<input type = "submit" class="time days" style="width:180px; color:white; background-color:blue" name="send_numbers" value = "Відправити">
 							
 					<?php endif; ?>
 				<?php endif; ?>
@@ -140,7 +145,7 @@
 			</form>		
 		</div>		
 		
-		
+		</div>	
 	</div>
 	
 
