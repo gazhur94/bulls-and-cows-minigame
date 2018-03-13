@@ -29,11 +29,15 @@ class MainpageController
             (new PlayerVSBot);
         }
         
-        else if (isset($_POST['StartPlayerVSBot']) )
+        else if (isset($_POST['StartPlayerVSBot']))
         {
             cookie::clear();
             (new PlayerVSBot);      
             
+        }
+        else if (isset($_POST['sendCowsBulls']))
+        {
+            (new PlayerVSBot);  
         }
         else if (isset($_POST['goToMain']))
         {
