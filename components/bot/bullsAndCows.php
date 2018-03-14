@@ -2,7 +2,7 @@
 
 namespace minigame\components\bot;
 
-class bullsAndCows extends turn
+class bullsAndCows 
 {
     public function __construct()
     {

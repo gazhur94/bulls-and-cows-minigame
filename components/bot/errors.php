@@ -15,7 +15,18 @@ class errors
     {
         if (isset($_POST['bulls']) && isset($_POST['cows']))
         {
-            if(($_POST['bulls'] + $_POST['cows']) > 4)
+            $bulls = $_POST['bulls'];
+            $cows = $_POST['cows'];
+            if ($_POST['bulls'] == '')
+            {
+                $bulls = 0;
+            }
+            if ($_POST['cows'] == '')
+            {
+                $cows = 0;
+            }
+
+            if(($bulls + $cows) > 4)
             {
                 {
                     $error = 'Сума биків і корів не може бути більше 4';
