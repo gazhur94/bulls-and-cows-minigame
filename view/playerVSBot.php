@@ -24,39 +24,115 @@
     <div class="splash" >
 			
 		<?php if(isset($_COOKIE['turnId'])): ?>
-
-			<?php for ($i=1;$i<=$_COOKIE['turnId']-1;$i++): ?>
-				<div class="countdown circled small">
-					
-					<?php 
-						$turnId = $i;
 						
-						$currentTurn = unserialize($_COOKIE["turn$turnId"]);
+				<?php if(isset($_POST['sendCowsBulls'])): ?>
+						<?php for ($i=1;$i<=$_COOKIE['turnId']-1;$i++): ?>
 						
-					?>
+			
+						
+								
+							
+							
+								<?php 
+									$turnId = $i;
+									$turnIdbc = $i;
+									$currentTurn = unserialize($_COOKIE["turn$turnId"]); 
+								?>
+									<?php if (isset($_COOKIE["bc$turnIdbc"])): ?>
+									
+										<div class="countdown circled small">
+											<?php $currentBC = unserialize($_COOKIE["bc$turnIdbc"]); ?>
+										
 
-					<?php for ($j=1;$j<=4;$j++): ?>
-					
-						<div class="time days">
-							<div class="value"><?php echo $currentTurn->{'num'."$j"}; ?></div>		
-						</div>
-					<?php endfor; ?>
+												<?php for ($j=1;$j<=4;$j++): ?>
+												
+												<div class="time days">
+													<div class="value"><?php echo $currentTurn->{'num'."$j"}; ?></div>		
+												</div>
+												<?php endfor; ?>
 
-					<?php for ($c=0; $c<$currentTurn->cows;$c++): ?>
-							<span>
-								<img src="/view/images/cow.png" alt="cow" style="width:70px; height:70px;">
-							</span>
-					<?php endfor; ?>
+												<?php for ($c=0; $c<$currentBC->cows;$c++): ?>
+														<span>
+															<img src="/view/images/cow.png" alt="cow" style="width:70px; height:70px;">
+														</span>
+												<?php endfor; ?>
 
-					<?php for ($b=0; $b<$currentTurn->bulls;$b++): ?>	
-							<span>
-								<img src="/view/images/bull.png" alt="bull" style="width:70px; height:70px;">
-							</span>
-					<?php endfor; ?>	
+												<?php for ($b=0; $b<$currentBC->bulls;$b++): ?>	
+														<span>
+															<img src="/view/images/bull.png" alt="bull" style="width:70px; height:70px;">
+														</span>
+												<?php endfor; ?>
+										</div>	
+									<?php else: ?>
+										<div class="countdown circled small">
+												
+											
 
-				</div>
-			<?php endfor; ?>
+												<?php for ($j=1;$j<=4;$j++): ?>
+												
+												<div class="time days">
+													<div class="value"><?php echo $currentTurn->{'num'."$j"}; ?></div>		
+												</div>
+												<?php endfor; ?>
+
+												<?php for ($c=0; $c<$cows;$c++): ?>
+														<span>
+															<img src="/view/images/cow.png" alt="cow" style="width:70px; height:70px;">
+														</span>
+												<?php endfor; ?>
+
+												<?php for ($b=0; $b<$bulls;$b++): ?>	
+														<span>
+															<img src="/view/images/bull.png" alt="bull" style="width:70px; height:70px;">
+														</span>
+												<?php endfor; ?>
+										</div>	
+									<?php endif; ?>
+
+
+						<?php endfor; ?>
+						
+							
+
+					<?php else: ?>
+						<?php for ($i=1;$i<=$_COOKIE['turnId']-1;$i++): ?>		
+							<div class="countdown circled small">
+							
+								<?php 
+									$turnId = $i;
+									$turnIdbc = $i;
+									$currentTurn = unserialize($_COOKIE["turn$turnId"]);
+									$currentBC = unserialize($_COOKIE["bc$turnIdbc"]);
+									
+								?>
+
+								<?php for ($j=1;$j<=4;$j++): ?>
+								
+									<div class="time days">
+										<div class="value"><?php echo $currentTurn->{'num'."$j"}; ?></div>		
+									</div>
+								<?php endfor; ?>
+
+								<?php for ($c=0; $c<$currentBC->cows;$c++): ?>
+										<span>
+											<img src="/view/images/cow.png" alt="cow" style="width:70px; height:70px;">
+										</span>
+								<?php endfor; ?>
+
+								<?php for ($b=0; $b<$currentBC->bulls;$b++): ?>	
+										<span>
+											<img src="/view/images/bull.png" alt="bull" style="width:70px; height:70px;">
+										</span>
+								<?php endfor; ?>
+							</div>
+						<?php endfor; ?>
+			
+					<?php endif; ?>
+
+				
 		<?php endif; ?>
+
+		
 
 	
 		<div class="countdown text-left  circled small">
@@ -78,32 +154,6 @@
 							<?php endif; ?>			
 
 
-					<?php else: ?>
-					
-						<?php for ($i=1;$i<=$_SESSION['turnId']-1;$i++): ?>
-							<div class="countdown circled small">
-									
-								<?php 
-										var_dump('isset');
-										$turnId = $i;
-										$currentTurn = unserialize($_COOKIE["turn$turnId"]);
-								?>
-								
-
-								<?php for ($j=1;$j<=4;$j++): ?>
-									<div class="time days">
-										<div class="value"><?php echo $currentTurn->{'num'."$j"}; ?></div>		
-									</div>
-								<?php endfor; ?>				
-				
-							</div>
-						<?php endfor; ?>
-				
-
-						<?php if (!isset($_POST['win']) && !isset($_POST['loose'])):	 ?>		
-							<input type = "submit" class="time days" style="width:140px; color:white; background-color:green" name="win" value = "Вгадав">
-							<input type = "submit" class="time days" style="width:170px; color:white; background-color:red" name="loose" value = "Не вгадав">
-						<?php endif; ?>	
 
 	
 				</form>					
@@ -112,6 +162,7 @@
 
 		
 		<?php if (isset($_POST['loose'])): ?>
+		
 			<div class="countdown text-left  circled small">
 				<form method='POST'>
 					<img src="/view/images/cow.png" alt="cow" style="width:70px; height:70px;">

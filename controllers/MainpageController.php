@@ -26,17 +26,20 @@ class MainpageController
         }
         else if (isset($_POST['win']) || isset($_POST['loose']))
         {
+            //var_dump('winlose');
             (new PlayerVSBot);
         }
         
         else if (isset($_POST['StartPlayerVSBot']))
         {
+            //var_dump('start');
             cookie::clear();
             (new PlayerVSBot);      
             
         }
         else if (isset($_POST['sendCowsBulls']))
         {
+            //var_dump('send');
             (new PlayerVSBot);  
         }
         else if (isset($_POST['goToMain']))
