@@ -22,7 +22,7 @@ class PlayerVSBot
             
              setcookie("turn$turnId",serialize(${"turn$turnId"}),time()+(3600*24*365));
         
-             var_dump('if');
+             //var_dump('if');
          
              return helpers::render('playerVSBot',["num1" => "$turn1->num1","num2" => "$turn1->num2","num3" => "$turn1->num3","num4" => "$turn1->num4"]);        
         }
