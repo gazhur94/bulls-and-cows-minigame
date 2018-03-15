@@ -22,7 +22,7 @@
 	<div class="splash" >
 	
 	<div class="container">
-
+	<div class="row">
 		<div class="col-9">
 		<!-- Інфа з куків				 -->
 		<?php if(isset($_COOKIE['turnId'])): ?>
@@ -92,7 +92,7 @@
 			<?php endif; ?>
 		<?php endif; ?>
 
-	
+	</div>
 	</div>
 
 	<!-- Форма вводу -->
