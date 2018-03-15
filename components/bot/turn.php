@@ -15,17 +15,107 @@ class turn
         {
             $this->turnId = 1;
         }
-        //var_dump('turn');
-        $this->num1 = $_SESSION['turnId'];
-        $this->num2 = $_SESSION['turnId'];
-        $this->num3 = $_SESSION['turnId'];
-        $this->num4 = $_SESSION['turnId'];
+        $number = self::generate();
+
+        $this->num1 = $number[0];
+        $this->num2 = $number[1];
+        $this->num3 = $number[2];
+        $this->num4 = $number[3];
         
-        
-        // $this->cows  = checker::cows($_POST['num1'],$_POST['num2'],$_POST['num3'],$_POST['num4']);
-        // $this->bulls = checker::bulls($_POST['num1'],$_POST['num2'],$_POST['num3'],$_POST['num4']);
-        return $this;
-                    
+        return $this;              
+    }
+
+    private static function generate()
+    {
+        if ($_SESSION['turnId'] == 1)
+        {
+            $number[0] = 1;
+            $number[1] = 2;
+            $number[2] = 3;
+            $number[3] = 4;
+
+        }
+        else if ($_SESSION['turnId'] == 2)
+        {
+            $number[0] = 4;
+            $number[1] = 5;
+            $number[2] = 6;
+            $number[3] = 7;
+
+        }
+        else if ($_SESSION['turnId'] == 3)
+        {
+            $number[0] = 3;
+            $number[1] = 4;
+            $number[2] = 8;
+            $number[3] = 0;
+
+        }
+        else if ($_SESSION['turnId'] == 4)
+        {
+            $number[0] = 6;
+            $number[1] = 0;
+            $number[2] = 4;
+            $number[3] = 3;
+        }
+        else if ($_SESSION['turnId'] == 5)
+        {
+            $counter = 0;
+            for ($i=1;$i<$_SESSION['turnId']-1;$i++)
+            {
+                $BC = unserialize($_COOKIE["bc$i"]);
+
+                $bulls = $BC->bulls;
+                $cows = $BC->cows;
+                $postBulls = $_POST['bulls'];
+                $postCows = $_POST['cows'];
+
+                if ($BC->bulls == '')
+                {
+                    $bulls = 0;
+                }
+                if ($BC->cows == '')
+                {
+                    $cows = 0;
+                }
+                
+                $counter = $counter + $cows;
+                $counter = $counter + $bulls;
+                
+            }
+            
+            if ($_POST['bulls'] == '')
+            {
+                $postBulls = 0;
+            }
+            if ($_POST['cows'] == '')
+            {
+                $postCows = 0;
+            }
+            $counter = $counter + $postBulls;
+            $counter = $counter + $postCows;
+            
+
+
+
+
+
+            $number[0] = 6;
+            $number[1] = 0;
+            $number[2] = 4;
+            $number[3] = 3;
+        }
+        else
+        {
+            $number[0] = $_SESSION['turnId'];
+            $number[1] = $_SESSION['turnId'];
+            $number[2] = $_SESSION['turnId'];
+            $number[3] = $_SESSION['turnId'];
+        }
+
+
+
+        return $number;
     }
 
 }

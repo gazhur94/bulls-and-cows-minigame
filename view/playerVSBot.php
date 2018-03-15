@@ -183,7 +183,7 @@
 		<?php endif; ?>
 			
 
-		<?php if (isset($_POST['win'])): ?>
+		<?php if (isset($_POST['win']) || (isset($_POST['bulls']) && $_POST['bulls'] == 4)): ?>
 			<div class="countdown text-left  circled small">
 				<p><b style="color:green; font-size:40px; font-type:bold">Я вгадав<b></p>
 			</div>

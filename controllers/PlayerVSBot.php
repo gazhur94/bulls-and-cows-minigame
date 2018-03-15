@@ -47,7 +47,14 @@ class PlayerVSBot
             
             $bulls = $_POST['bulls'];
             $cows = $_POST['cows']; 
-            
+            if ($_POST['bulls'] == '')
+            {
+                $bulls = 0;
+            }
+            if ($_POST['cows'] == '')
+            {
+                $cows = 0;
+            }
             if (empty($errors->error))
             {
                 setcookie("bc$turnIdbc",serialize(${"bc$turnIdbc"}),time()+(3600*24*365));
