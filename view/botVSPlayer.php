@@ -63,37 +63,7 @@
 					<?php endif; ?>
 
 
-					<!-- Інфа з поста -->
-					<?php if (!isset($_POST['resetGame']) && (!isset($_POST['showAnswer']))): ?>
-						<?php if ((isset($_POST['num1'])) && (isset($_POST['num2'])) && (isset($_POST['num3'])) && (isset($_POST['num4'])) ): ?>
-							<?php if (!isset($error)): ?>
-								<div class="countdown circled small">
-									<div class="text-left" >			
-											<?php for ($i=1;$i<=4;$i++): ?>
-													
-												<div class="time days" style="text-align: center">
-													<div class="value"><?php echo $_POST['num'."$i"]; ?></div>
-															
-												</div>
-									
-											<?php endfor; ?>
-													
-											<?php for ($i=0; $i<$cows;$i++): ?>
-													<span>
-														<img src="/view/images/cow.png" alt="cow" style="width:70px; height:70px;">
-													</span>
-											<?php endfor; ?>	
-
-											<?php for ($i=0; $i<$bulls;$i++): ?>	
-													<span>
-														<img src="/view/images/bull.png" alt="bull" style="width:70px; height:70px;">
-													</span>
-																<?php endfor; ?>	
-									</div>
-								</div>
-							<?php endif; ?>
-						<?php endif; ?>
-					<?php endif; ?>				
+								
 			</div>
 		</div>
 
@@ -136,7 +106,7 @@
 							<br><br>
 							<input type = "submit" class="time days" style="width:240px; color:white" name="goToMain" value = "Головне меню">
 
-							<?php if ((!isset($_POST['showAnswer'])  && (isset($bulls)) && ($bulls != 4))): ?>
+							<?php if (!isset($_POST['showAnswer'])): ?>
 								<input type = "submit" class="time days" style="width:450px; color:white" name="showAnswer" value = "Здатись / Показати відповідь">
 							<?php endif; ?>
 							

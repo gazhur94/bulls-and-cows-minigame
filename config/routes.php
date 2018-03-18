@@ -1,8 +1,11 @@
 <?php
 return array
 (
-    '' => 'mainpage/index',
-
+    'botVSplayer' => 'botVSPlayer/index',
+    'playerVSbot' => 'playerVSBot/index',
+    'resetGame1' => 'botVSPlayer/reset',
+    
+    'main' => 'mainpage/index',
     
 
 );

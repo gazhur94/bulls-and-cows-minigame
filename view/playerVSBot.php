@@ -31,11 +31,7 @@
 							<?php if(isset($_POST['sendCowsBulls'])): ?>
 									<?php for ($i=1;$i<=$_COOKIE['turnId']-1;$i++): ?>
 									<div class="text-left" >
-						
-									
-											
-										
-										
+
 											<?php 
 												$turnId = $i;
 												$turnIdbc = $i;
