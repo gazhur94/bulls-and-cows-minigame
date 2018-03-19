@@ -27,7 +27,7 @@ class turn
 
     private static function generate()
     {
-        if ($_SESSION['turnId'] == 1)
+        if ($_SESSION['turnpId'] == 1)
         {
             $number[0] = 1;
             $number[1] = 2;
@@ -35,7 +35,7 @@ class turn
             $number[3] = 4;
 
         }
-        else if ($_SESSION['turnId'] == 2)
+        else if ($_SESSION['turnpId'] == 2)
         {
             $number[0] = 4;
             $number[1] = 5;
@@ -43,7 +43,7 @@ class turn
             $number[3] = 7;
 
         }
-        else if ($_SESSION['turnId'] == 3)
+        else if ($_SESSION['turnpId'] == 3)
         {
             $number[0] = 3;
             $number[1] = 4;
@@ -51,17 +51,17 @@ class turn
             $number[3] = 0;
 
         }
-        else if ($_SESSION['turnId'] == 4)
+        else if ($_SESSION['turnpId'] == 4)
         {
             $number[0] = 6;
             $number[1] = 0;
             $number[2] = 4;
             $number[3] = 3;
         }
-        else if ($_SESSION['turnId'] == 5)
+        else if ($_SESSION['turnpId'] == 5)
         {
             $counter = 0;
-            for ($i=1;$i<$_SESSION['turnId']-1;$i++)
+            for ($i=1;$i<$_SESSION['turnpId']-1;$i++)
             {
                 $BC = unserialize($_COOKIE["bc$i"]);
 
@@ -107,10 +107,10 @@ class turn
         }
         else
         {
-            $number[0] = $_SESSION['turnId'];
-            $number[1] = $_SESSION['turnId'];
-            $number[2] = $_SESSION['turnId'];
-            $number[3] = $_SESSION['turnId'];
+            $number[0] = $_SESSION['turnpId'];
+            $number[1] = $_SESSION['turnpId'];
+            $number[2] = $_SESSION['turnpId'];
+            $number[3] = $_SESSION['turnpId'];
         }
 
 

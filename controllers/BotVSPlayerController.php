@@ -57,9 +57,9 @@ class BotVSPlayerController
     public static function get()
     {
         $turnId = $_COOKIE['turnId'];
-        ${"turn$turnId"} = new turn;
+        ${"turnb$turnId"} = new turn;
                 
-        setcookie("turn$turnId",serialize(${"turn$turnId"}),time()+(3600*24*365));
+        setcookie("turnb$turnId",serialize(${"turnb$turnId"}),time()+(3600*24*365));
         setcookie('turnId',$_COOKIE['turnId']+1,time()+(3600*24*365));
 
         return header('location: /botVSplayer');

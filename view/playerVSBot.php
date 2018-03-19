@@ -26,21 +26,21 @@
 			<div class="row">
 				<div class="col-9 offset-3" >
 			
-					<?php if(isset($_COOKIE['turnId'])): ?>
+					<?php if(isset($_COOKIE['turnpId'])): ?>
 									
 							<?php if(isset($_POST['sendCowsBulls'])): ?>
-									<?php for ($i=1;$i<=$_COOKIE['turnId']-1;$i++): ?>
+									<?php for ($i=1;$i<=$_COOKIE['turnpId']-1;$i++): ?>
 									<div class="text-left" >
 
 											<?php 
-												$turnId = $i;
-												$turnIdbc = $i;
-												$currentTurn = unserialize($_COOKIE["turn$turnId"]); 
+												$turnpId = $i;
+												$turnpIdbc = $i;
+												$currentTurn = unserialize($_COOKIE["turnp$turnpId"]); 
 											?>
-												<?php if (isset($_COOKIE["bc$turnIdbc"])): ?>
+												<?php if (isset($_COOKIE["bc$turnpIdbc"])): ?>
 												
 													<div class="countdown circled small"  style="text-align: center">
-														<?php $currentBC = unserialize($_COOKIE["bc$turnIdbc"]); ?>
+														<?php $currentBC = unserialize($_COOKIE["bc$turnpIdbc"]); ?>
 													
 															
 																<?php for ($j=1;$j<=4;$j++): ?>
@@ -97,14 +97,14 @@
 										
 
 								<?php else: ?>
-									<?php for ($i=1;$i<=$_COOKIE['turnId']-1;$i++): ?>		
+									<?php for ($i=1;$i<=$_COOKIE['turnpId']-2;$i++): ?>		
 										<div class="countdown circled small">
 										
 											<?php 
-												$turnId = $i;
-												$turnIdbc = $i;
-												$currentTurn = unserialize($_COOKIE["turn$turnId"]);
-												$currentBC = unserialize($_COOKIE["bc$turnIdbc"]);
+												$turnpId = $i;
+												$turnpIdbc = $i;
+												$currentTurn = unserialize($_COOKIE["turnp$turnpId"]);
+												$currentBC = unserialize($_COOKIE["bc$turnpIdbc"]);
 												
 											?>
 
@@ -141,7 +141,7 @@
 							<form method='POST'>			
 							
 								<?php if(!isset($error)): ?>
-									<?php if(isset($_SESSION['turnId'])): ?>
+									<?php if(isset($_SESSION['turnpId'])): ?>
 										<div class="countdown circled small">
 										
 										
@@ -195,7 +195,7 @@
 					<form method='POST'>			
 						<div class="countdown circled small" style="text-align:center">
 									<br><br>
-									<input type = "submit" class="time days" style="width:240px; color:white" name="goToMain" value = "Головне меню">
+									<a href="/main"><input class="time days" style="width:240px; color:white" name="goToMain" value = "Головне меню"></a>
 									<input type = "submit" class="time days" style="width:170px; color:white" name="resetGame2" value = "Спочатку">
 						</div>
 					</form>		

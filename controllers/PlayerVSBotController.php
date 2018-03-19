@@ -9,41 +9,41 @@ use minigame\components\bot\bullsAndCows;
 use minigame\components\bot\errors;
 
 
-class PlayerVSBot
+class PlayerVSBotController
 {
-    public function __construct()
+    public function actionIndex()
     {  
-        if (!isset($_COOKIE['turnId']))
+        if (!isset($_COOKIE['turnpId']))
         {
-             setcookie('turnId',1,time()+(3600*24*365));
-             $_SESSION['turnId'] = 1;
-             $turnId = 1;
-             ${"turn$turnId"} = new turn;
+             setcookie('turnpId',1,time()+(3600*24*365));
+             $_SESSION['turnpId'] = 1;
+             $turnpId = 1;
+             ${"turnp$turnpId"} = new turn;
             
-             setcookie("turn$turnId",serialize(${"turn$turnId"}),time()+(3600*24*365));
+             setcookie("turnp$turnpId",serialize(${"turnp$turnpId"}),time()+(3600*24*365));
         
              //var_dump('if');
          
-             return helpers::render('playerVSBot',["num1" => "$turn1->num1","num2" => "$turn1->num2","num3" => "$turn1->num3","num4" => "$turn1->num4"]);        
+             return helpers::render('playerVSBot',["num1" => "$turnp1->num1","num2" => "$turnp1->num2","num3" => "$turnp1->num3","num4" => "$turnp1->num4"]);        
         }
         else if (isset($_POST['sendCowsBulls']))
         {
             $errors = new errors;
-            $turnId = $_SESSION['turnId'];
-            ${"turn$turnId"} = new turn;
-            setcookie("turn$turnId",serialize(${"turn$turnId"}),time()+(3600*24*365));
+            $turnpId = $_SESSION['turnpId'];
+            ${"turn$turnpId"} = new turn;
+            setcookie("turn$turnpId",serialize(${"turn$turnpId"}),time()+(3600*24*365));
             
-            $turnIdbc = $turnId-1;
-            ${"bc$turnIdbc"} = new bullsAndCows;
+            $turnpIdbc = $turnpId-1;
+            ${"bc$turnpIdbc"} = new bullsAndCows;
             
-            $cows = ${"bc$turnIdbc"}->cows;
-            $bulls = ${"bc$turnIdbc"}->bulls;
+            $cows = ${"bc$turnpIdbc"}->cows;
+            $bulls = ${"bc$turnpIdbc"}->bulls;
 
         
-            $num1 = ${"turn$turnId"}->num1;
-            $num2 = ${"turn$turnId"}->num2;
-            $num3 = ${"turn$turnId"}->num3;
-            $num4 = ${"turn$turnId"}->num4;    
+            $num1 = ${"turn$turnpId"}->num1;
+            $num2 = ${"turn$turnpId"}->num2;
+            $num3 = ${"turn$turnpId"}->num3;
+            $num4 = ${"turn$turnpId"}->num4;    
             
             $bulls = $_POST['bulls'];
             $cows = $_POST['cows']; 
@@ -57,7 +57,7 @@ class PlayerVSBot
             }
             if (empty($errors->error))
             {
-                setcookie("bc$turnIdbc",serialize(${"bc$turnIdbc"}),time()+(3600*24*365));
+                setcookie("bc$turnpIdbc",serialize(${"bc$turnpIdbc"}),time()+(3600*24*365));
                 return helpers::render('playerVSBot',["num1" => "$num1","num2" => "$num2","num3" => "$num3","num4" => "$num4","cows" => "$cows", "bulls" => "$bulls"]); 
             }
             else
@@ -67,19 +67,19 @@ class PlayerVSBot
             }
             
         }
-        else if (isset($_COOKIE['turnId']))
+        else if (isset($_COOKIE['turnpId']))
         {
-            $turnId = $_SESSION['turnId'];
-            ${"turn$turnId"} = new turn;
+            $turnpId = $_SESSION['turnpId'];
+            ${"turn$turnpId"} = new turn;
             
             //var_dump('elseif2');
-            $_SESSION['turnId'] = $_SESSION['turnId']+1;
-            setcookie('turnId',$_COOKIE['turnId']+1,time()+(3600*24*365));
+            $_SESSION['turnpId'] = $_SESSION['turnpId']+1;
+            setcookie('turnpId',$_COOKIE['turnpId']+1,time()+(3600*24*365));
      
-            $num1 = ${"turn$turnId"}->num1;
-            $num2 = ${"turn$turnId"}->num2;
-            $num3 = ${"turn$turnId"}->num3;
-            $num4 = ${"turn$turnId"}->num4;
+            $num1 = ${"turn$turnpId"}->num1;
+            $num2 = ${"turn$turnpId"}->num2;
+            $num3 = ${"turn$turnpId"}->num3;
+            $num4 = ${"turn$turnpId"}->num4;
             
             return helpers::render('playerVSBot',["num1" => "$num1","num2" => "$num2","num3" => "$num3","num4" => "$num4"]); 
 

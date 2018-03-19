@@ -35,7 +35,7 @@
 								<div class="text-left" >
 									<?php 
 										$turnId = $i;
-										$currentTurn = unserialize($_COOKIE["turn$turnId"]);
+										$currentTurn = unserialize($_COOKIE["turnb$turnId"]);
 									?>
 
 									<?php for ($j=1;$j<=4;$j++): ?>
@@ -68,6 +68,15 @@
 		</div>
 
 	<!-- Форма вводу -->
+			<?php
+				if (isset($_COOKIE['turnId']))
+				{
+					$turnId = $_COOKIE['turnId']-1;
+					$turn = unserialize($_COOKIE["turnb$turnId"]);
+					$bulls = $turn->bulls;
+				}
+
+			?>
 			<div>
 				<div class="countdown circled small">
 				<div class="text-left" style="margin-left:25%">
@@ -104,9 +113,9 @@
 
 						<div class="countdown circled small" style="text-align:center">
 							<br><br>
-							<input type = "submit" class="time days" style="width:240px; color:white" name="goToMain" value = "Головне меню">
-
-							<?php if (!isset($_POST['showAnswer'])): ?>
+							<a href="/main"><input class="time days" style="width:240px; color:white" value = "Головне меню"></a>
+							
+							<?php if (!isset($_POST['showAnswer']) && (!isset($bulls) || $bulls !=4)): ?>
 								<input type = "submit" class="time days" style="width:450px; color:white" name="showAnswer" value = "Здатись / Показати відповідь">
 							<?php endif; ?>
 							

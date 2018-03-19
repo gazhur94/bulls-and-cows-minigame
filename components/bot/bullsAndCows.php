@@ -6,7 +6,7 @@ class bullsAndCows
 {
     public function __construct()
     {
-        $this->turnId = $_SESSION['turnId']-1;
+        $this->turnpId = $_SESSION['turnpId']-1;
         $this->cows = $_POST['cows'];
         $this->bulls = $_POST['bulls'];
         
