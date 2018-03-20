@@ -83,7 +83,7 @@
 					<form method='POST'>
 						<?php if (isset($bulls)): ?>
 							<?php if ($bulls == 4): ?>
-								<p><b style="color:green; font-size:40px; font-type:bold">Ви вгадали число за <?php echo $_COOKIE['turnId'] ?> спроб<b></p>
+								<p><b style="color:green; font-size:40px; font-type:bold">Ви вгадали число за <?php echo $_COOKIE['turnId']-1 ?> спроб<b></p>
 							<?php endif; ?>
 						<?php endif; ?>
 

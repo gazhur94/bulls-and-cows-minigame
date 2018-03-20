@@ -15,12 +15,12 @@ class PlayerVSBotController
     {  
         if (!isset($_COOKIE['turnpId']))
         {
-             setcookie('turnpId',1,time()+(3600*24*365));
+             setcookie('turnpId',1,time()+(3600));
              $_SESSION['turnpId'] = 1;
              $turnpId = 1;
              ${"turnp$turnpId"} = new turn;
             
-             setcookie("turnp$turnpId",serialize(${"turnp$turnpId"}),time()+(3600*24*365));
+             setcookie("turnp$turnpId",serialize(${"turnp$turnpId"}),time()+(3600));
         
              //var_dump('if');
          
@@ -31,7 +31,7 @@ class PlayerVSBotController
             $errors = new errors;
             $turnpId = $_SESSION['turnpId'];
             ${"turn$turnpId"} = new turn;
-            setcookie("turn$turnpId",serialize(${"turn$turnpId"}),time()+(3600*24*365));
+            setcookie("turn$turnpId",serialize(${"turn$turnpId"}),time()+(3600));
             
             $turnpIdbc = $turnpId-1;
             ${"bc$turnpIdbc"} = new bullsAndCows;
@@ -57,7 +57,7 @@ class PlayerVSBotController
             }
             if (empty($errors->error))
             {
-                setcookie("bc$turnpIdbc",serialize(${"bc$turnpIdbc"}),time()+(3600*24*365));
+                setcookie("bc$turnpIdbc",serialize(${"bc$turnpIdbc"}),time()+(3600));
                 return helpers::render('playerVSBot',["num1" => "$num1","num2" => "$num2","num3" => "$num3","num4" => "$num4","cows" => "$cows", "bulls" => "$bulls"]); 
             }
             else
@@ -74,7 +74,7 @@ class PlayerVSBotController
             
             //var_dump('elseif2');
             $_SESSION['turnpId'] = $_SESSION['turnpId']+1;
-            setcookie('turnpId',$_COOKIE['turnpId']+1,time()+(3600*24*365));
+            setcookie('turnpId',$_COOKIE['turnpId']+1,time()+(3600));
      
             $num1 = ${"turn$turnpId"}->num1;
             $num2 = ${"turn$turnpId"}->num2;
