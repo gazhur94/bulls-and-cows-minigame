@@ -10,6 +10,7 @@ class MainpageController
 {
     public function actionIndex()
     {
+        
         if (isset($_POST['StartBotVSPlayer']))
         {
             return header('location: /botVSplayer');   

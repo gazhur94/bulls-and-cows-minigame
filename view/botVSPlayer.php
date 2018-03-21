@@ -113,7 +113,7 @@
 
 						<div class="countdown circled small" style="text-align:center">
 							<br><br>
-							<a href="/main"><input class="time days" style="width:240px; color:white" value = "Головне меню"></a>
+							<a href="/"><input class="time days" style="width:240px; color:white" value = "Головне меню"></a>
 							
 							<?php if (!isset($_POST['showAnswer']) && (!isset($bulls) || $bulls !=4)): ?>
 								<input type = "submit" class="time days" style="width:450px; color:white" name="showAnswer" value = "Здатись / Показати відповідь">

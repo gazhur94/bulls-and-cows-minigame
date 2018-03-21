@@ -7,8 +7,7 @@ class router
 
     public function __construct()
     {
-        $routesPath = ROOT.'/config/routes.php';
-        $this->routes = include($routesPath);
+        $this->routes = include(ROOT.'/config/routes.php');
     }
    
 
@@ -46,16 +45,15 @@ class router
                 }
                 
 
-                $namespace = 'minigame\\controllers';
+                    $namespace = 'minigame\\controllers';
                 
-                $controllerClass = $namespace . '\\' . $controllerName;
-                
-                $controllerObject = new $controllerClass;
-                $result = $controllerObject->$actionName();
-                if ($result != null)
-                {
+                    $controllerClass = $namespace . '\\' . $controllerName;
+                    
+                    $controllerObject = new $controllerClass;
+                    $result = $controllerObject->$actionName();
                     break;
-                }
+
+   
            }
         }
     }

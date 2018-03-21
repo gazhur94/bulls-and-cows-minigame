@@ -18,7 +18,7 @@ class BotVSPlayerController
     {   
         if (!isset($_COOKIE['turnId']))
         {
-            setcookie('turnId',1,time()+(3600*24*365));
+            setcookie('turnId',1,time()+(3600));
             $_SESSION['number'] = new number;
             return self::show();
         }
@@ -32,7 +32,7 @@ class BotVSPlayerController
             {
                 $errors = new errors;
                 if (empty($errors->error))
-                {
+                { 
                     return self::get();
                 }
                 else
@@ -42,14 +42,13 @@ class BotVSPlayerController
             }
             else
             {
-                return self::show(); 
+                return $this->show(); 
             }
         }
     }
 
     public function actionReset()
     {
-        
         cookie::clear();
         return header('location: /botVSplayer'); 
     }
@@ -59,13 +58,13 @@ class BotVSPlayerController
         $turnId = $_COOKIE['turnId'];
         ${"turnb$turnId"} = new turn;
                 
-        setcookie("turnb$turnId",serialize(${"turnb$turnId"}),time()+(3600*24*365));
-        setcookie('turnId',$_COOKIE['turnId']+1,time()+(3600*24*365));
+        setcookie("turnb$turnId",serialize(${"turnb$turnId"}),time()+(3600));
+        setcookie('turnId',$_COOKIE['turnId']+1,time()+(3600));
 
         return header('location: /botVSplayer');
     }
 
-    private static function show()
+    private function show()
     {
         {
             return helpers::render('botVSPlayer');
@@ -76,7 +75,7 @@ class BotVSPlayerController
 
     //     if (!isset($_COOKIE['turnId']))
     //     {
-    //         setcookie('turnId',1,time()+(3600*24*365));
+    //         setcookie('turnId',1,time()+(3600));
              
     //         $_SESSION['number'] = new number;
     //     }
@@ -97,8 +96,8 @@ class BotVSPlayerController
     //                 $bulls = ${"turn$turnId"}->bulls;
     //                 $cows = ${"turn$turnId"}->cows;
                     
-    //                 setcookie("turn$turnId",serialize(${"turn$turnId"}),time()+(3600*24*365));
-    //                 setcookie('turnId',$_COOKIE['turnId']+1,time()+(3600*24*365));
+    //                 setcookie("turn$turnId",serialize(${"turn$turnId"}),time()+(3600));
+    //                 setcookie('turnId',$_COOKIE['turnId']+1,time()+(3600));
 
     //                 return helpers::render('botVSPlayer', ["bulls" => "$bulls", "cows" =>"$cows"]);
                     

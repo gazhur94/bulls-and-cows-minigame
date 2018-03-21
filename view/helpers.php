@@ -9,7 +9,7 @@ class helpers
        
         if (file_exists($path))
         {
-            
+            // die($path);
             extract($data);
             require($path);
         }

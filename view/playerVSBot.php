@@ -28,7 +28,7 @@
 			
 					<?php if(isset($_COOKIE['turnpId'])): ?>
 									
-							<?php if(isset($_POST['sendCowsBulls'])): ?>
+							
 									<?php for ($i=1;$i<=$_COOKIE['turnpId']-1;$i++): ?>
 									<div class="text-left" >
 
@@ -96,7 +96,7 @@
 									
 										
 
-								<?php else: ?>
+								
 									<?php for ($i=1;$i<=$_COOKIE['turnpId']-2;$i++): ?>		
 										<div class="countdown circled small">
 										
@@ -129,7 +129,7 @@
 										</div>
 									<?php endfor; ?>
 						
-								<?php endif; ?>
+								
 
 							
 					<?php endif; ?>
@@ -195,7 +195,7 @@
 					<form method='POST'>			
 						<div class="countdown circled small" style="text-align:center">
 									<br><br>
-									<a href="/main"><input class="time days" style="width:240px; color:white" name="goToMain" value = "Головне меню"></a>
+									<a href="/"><input class="time days" style="width:240px; color:white" name="goToMain" value = "Головне меню"></a>
 									<input type = "submit" class="time days" style="width:170px; color:white" name="resetGame2" value = "Спочатку">
 						</div>
 					</form>		
