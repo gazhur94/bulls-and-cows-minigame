@@ -161,10 +161,10 @@ class PlayerVSBotController
 												
 // 												$currentTurn = unserialize($_COOKIE["turnp$turnpId"]); 
 // 												$t=$_SESSION['turnpId'];
-// 										?>
+// 										
 										
-// 											<?php for ($j=1;$j<=4;$j++): ?>
+// 											 for ($j=1;$j<=4;$j++): 
 // 												<div class="time days">
-// 													<div class="value"><?php echo $_COOKIE["turnp$t"]->num{$j} ?></div>		
-// 												</div>
-// 											<?php endfor; ?>
+// 													<div class="value"><?php echo $_COOKIE["turnp$t"]->num{$j}	
+// 												
+// 											< endfor; 

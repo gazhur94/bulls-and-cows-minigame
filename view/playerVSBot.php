@@ -135,7 +135,7 @@
 					<?php endif; ?>
 
 					
-
+	
 				
 					<div class="countdown text-left  circled small">
 							<form method='POST'>			
