@@ -13,7 +13,8 @@ class PlayerVSBotController
 {
     public function actionIndex()
     {  
-        if (!isset($_COOKIE['turnpId'])) {
+        if (!isset($_COOKIE['turnpId'])) 
+        {
              setcookie('turnpId',1,time()+(3600));
              $_SESSION['turnpId'] = 1;
              $turnpId = 1;
@@ -24,7 +25,9 @@ class PlayerVSBotController
 
              return helpers::render('playerVSBot',["num1" => "$turnp1->num1","num2" => "$turnp1->num2","num3" => "$turnp1->num3","num4" => "$turnp1->num4"]);   
        
-        } else {
+        } 
+        else 
+        {
             if (isset($_POST['sendCowsBulls']))
             {
                 var_dump('send');
@@ -32,7 +35,7 @@ class PlayerVSBotController
                 $turnpId = $_COOKIE['turnpId'];
                 ${"turn$turnpId"} = new turn;
                 setcookie("turn$turnpId",serialize(${"turn$turnpId"}),time()+(3600));
-                
+                var_dump(${"turn$turnpId"});
                 $turnpIdbc = $turnpId-1;
                 ${"bc$turnpIdbc"} = new bullsAndCows;
                 
