@@ -7,9 +7,9 @@ class turn
     public function __construct()
     {
         
-        if (isset($_COOKIE['turnpId']))
+        if (isset($_SESSION['turnpId']))
         {
-            $this->turnId = $_COOKIE['turnpId'];
+            $this->turnId = $_SESSION['turnpId'];
         }
         else
         {
