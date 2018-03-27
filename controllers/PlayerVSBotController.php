@@ -7,6 +7,7 @@ use minigame\view\helpers;
 use minigame\components\bot\turn;
 use minigame\components\bot\bullsAndCows;
 use minigame\components\bot\errors;
+use minigame\components\cookie;
 
 
 class PlayerVSBotController
@@ -21,7 +22,7 @@ class PlayerVSBotController
              ${"turnp$turnpId"} = new turn;
              setcookie("turnp$turnpId",serialize(${"turnp$turnpId"}),time()+(3600));
              //self::setCookie();
-             var_dump('!isset');
+            //  var_dump('!isset');
              $_SESSION['turnpId'] = $_SESSION['turnpId'] +1;
              setcookie('turnpId',$_COOKIE['turnpId']+1,time()+(3600));
              return header('location: /playerVSbot');   
@@ -29,9 +30,13 @@ class PlayerVSBotController
         } 
         else 
         {
-            if (isset($_POST['sendCowsBulls']))
+            if (isset($_POST['resetGame2']))
             {
-                var_dump('send');
+                return header('location: /resetGame2');
+            }
+            else if (isset($_POST['sendCowsBulls']))
+            {
+                // var_dump('send');
                 $errors = new errors;
                 $turnpId = $_SESSION['turnpId'];
                 ${"turnp$turnpId"} = new turn;
@@ -62,7 +67,7 @@ class PlayerVSBotController
                 {
                     $cows = 0;
                 }
-                var_dump($errors);
+                //var_dump($errors);
 
                 if (empty($errors->error))
                 {
@@ -74,14 +79,14 @@ class PlayerVSBotController
                 }
                 else
                 {
-                    var_dump('error');
+                   // var_dump('error');
                     return helpers::render('playerVSBot',["error" => "$errors->error"]);   
                 }
 
             }
             else
             {
-                var_dump('else');
+               // var_dump('else');
                 return helpers::render('playerVSBot');
             }
         }
@@ -90,6 +95,11 @@ class PlayerVSBotController
         {
             return header('location: /playerVSbot');
         }
+        public function actionReset()
+    {
+        cookie::clear();
+        return header('location: /playerVSbot'); 
+    }
 
 
     

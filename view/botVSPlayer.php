@@ -79,7 +79,7 @@
 			?>
 			<div>
 				<div class="countdown circled small">
-				<div class="text-left" style="margin-left:25%">
+				<div class="text-left offset-3">
 					<form method='POST'>
 						<?php if (isset($bulls)): ?>
 							<?php if ($bulls == 4): ?>

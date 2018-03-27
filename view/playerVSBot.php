@@ -27,12 +27,50 @@
 				<div class="col-9 offset-3" >
 					
 					<?php if(isset($_COOKIE['turnpId'])): ?>
+								<?php if (isset($_POST['loose'])): ?>
 									
-							
-									
-									
-										
+									<?php for ($i=1;$i<=$_COOKIE['turnpId'];$i++): ?>
+									<div class="text-left" >
 
+											<?php 
+												$turnpId = $i;
+												$turnpIdbc = $i;
+												$currentTurn = unserialize($_COOKIE["turnp$turnpId"]); 
+											?>
+												
+													<div class="countdown circled small text-left"  >
+													
+															
+																<?php for ($j=1;$j<=4;$j++): ?>
+																
+																<div class="time days" style="text-align: center">
+																	<div class="value"><?php echo $currentTurn->{'num'."$j"}; ?></div>		
+																</div>
+																<?php endfor; ?>
+																<?php if (isset($_COOKIE["bc$turnpIdbc"])): ?>
+																<?php $currentBC = unserialize($_COOKIE["bc$turnpIdbc"]); ?>
+
+																	<?php for ($c=0; $c<$currentBC->cows;$c++): ?>
+																			<span>
+																				<img src="/view/images/cow.png" alt="cow" style="width:70px; height:70px;">
+																			</span>
+																	<?php endfor; ?>
+
+																	<?php for ($b=0; $b<$currentBC->bulls;$b++): ?>	
+																			<span>
+																				<img src="/view/images/bull.png" alt="bull" style="width:70px; height:70px;">
+																			</span>
+																	<?php endfor; ?>
+															
+																<?php endif; ?>
+													</div>	
+												
+
+										</div>
+										<?php endfor; ?>
+								<?php else: ?>		
+										
+								
 								
 									<?php for ($i=1;$i<=$_COOKIE['turnpId']-1;$i++): ?>		
 									<?php 
@@ -45,12 +83,12 @@
 										}
 										
 									?>
-										<div class="countdown circled small">
+										<div class="countdown circled small text-left">
 										
 
 											<?php for ($j=1;$j<=4;$j++): ?>
 											
-												<div class="time days">
+												<div class="time days" style="text-align: center">
 													<div class="value"><?php echo $currentTurn->{'num'."$j"}; ?></div>		
 												</div>
 											<?php endfor; ?>
@@ -74,7 +112,7 @@
 									<?php endfor; ?>
 						
 								
-
+								<?php endif; ?>				
 							
 					<?php endif; ?>
 
@@ -95,7 +133,7 @@
 										?>
 										
 											<?php for ($j=1;$j<=4;$j++): ?>
-												<div class="time days">
+												<div class="time days " style="text-align: center">
 													<div class="value"><?php echo $currentTurn->{'num'."$j"}; ?></div>		
 												</div>
 											<?php endfor; ?>
