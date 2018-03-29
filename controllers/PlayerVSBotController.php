@@ -91,7 +91,7 @@ class PlayerVSBotController
             }
         }
     }
-        public static function actionSetCookie()
+        public function actionSetCookie()
         {
             return header('location: /playerVSbot');
         }

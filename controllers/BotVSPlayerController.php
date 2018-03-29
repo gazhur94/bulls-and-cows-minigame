@@ -20,7 +20,7 @@ class BotVSPlayerController
         {
             setcookie('turnId',1,time()+(3600));
             $_SESSION['number'] = new number;
-            return self::show();
+            return $this->show();
         }
         else
         {
@@ -33,7 +33,7 @@ class BotVSPlayerController
                 $errors = new errors;
                 if (empty($errors->error))
                 { 
-                    return self::get();
+                    return $this->get();
                 }
                 else
                 {
@@ -53,7 +53,7 @@ class BotVSPlayerController
         return header('location: /botVSplayer'); 
     }
 
-    public static function get()
+    public function get()
     {
         $turnId = $_COOKIE['turnId'];
         ${"turnb$turnId"} = new turn;
