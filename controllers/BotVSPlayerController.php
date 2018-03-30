@@ -46,7 +46,7 @@ class BotVSPlayerController
             }
         }
     }
-
+    
     public function actionReset()
     {
         cookie::clear();
