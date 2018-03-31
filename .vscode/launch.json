@@ -15,7 +15,7 @@
             "name": "Launch currently open script",
             "type": "php",
             "request": "launch",
-            "program": "${file}",
+            "program": "${workspaceFolder}/index.php",
             "cwd": "${fileDirname}",
             "port": 9000
         }
