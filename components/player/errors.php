@@ -16,8 +16,14 @@ class errors
     }
     private static function checkDoublet()
     {
-        // array_unique($_POST) == $_POST
-        if($_POST['num1'] == $_POST['num2'] || $_POST['num1'] == $_POST['num3'] || $_POST['num1'] == $_POST['num4'] || $_POST['num2'] == $_POST['num3'] || $_POST['num2'] == $_POST['num4'] || $_POST['num3'] == $_POST['num4'])
+        $array[] = $_POST['num1'];
+        $array[] = $_POST['num2'];
+        $array[] = $_POST['num3'];
+        $array[] = $_POST['num4'];
+
+        $uniqueArray = array_unique($array);
+
+        if($array != $uniqueArray)
         {
             $error = 'Цифри не можуть повторюватись';
             return $error;
