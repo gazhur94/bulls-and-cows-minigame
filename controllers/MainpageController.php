@@ -9,21 +9,7 @@ use minigame\view\helpers;
 class MainpageController
 {
     public function actionIndex()
-    {
-        // phpinfo();
-        // die();
-        if (isset($_POST['StartBotVSPlayer']))
-        {
-            return header('location: /botVSplayer');   
-        }
-        else if (isset($_POST['StartPlayerVSBot']))
-        {
-            return header('location: /playerVSbot');   
-        }
-        else
-        {
-            return helpers::render('mainpage');
-        }
-
+    {   
+        return helpers::render('mainpage');
     }
 }

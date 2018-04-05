@@ -4,10 +4,10 @@
 		
         <form method='POST'>			
             <div class="countdown circled small" style="text-align:center">
-                <input type = "submit" class="time days" style="width:320px; color:white" name="StartBotVSPlayer" value = "Відгадати число бота">
+                <a href="/botVSplayer" class="time days" style="width:320px; color:white" >Відгадати число бота</a>
             </div>
 			<div class="countdown circled small" style="text-align:center">
-				<input type = "submit" class="time days" style="width:320px; color:white" name="StartPlayerVSBot" value = "Загадати боту число">
+				<a href="/playerVSbot" class="time days" style="width:320px; color:white" >Загадати боту число</a>
             </div>
 		</form>		
 		
